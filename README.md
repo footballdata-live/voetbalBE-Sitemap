@@ -17,6 +17,10 @@ Later komt erbij: `sitemap-data.json`, een kleine samenvatting (boards, custom p
 
 **17 november 2026 — testversie.** `sitemap.xml` bevat enkel de homepage, de 23 publieke boards en de 30 publieke custom pages (54 URL's), zonder lastmod. Doel: nagaan of Google Search Console een sitemap aanvaardt die op dit adres staat en URL's van voetbalbe.boards.net bevat (cross-submission, beide properties geverifieerd in hetzelfde account).
 
+Tijdelijke testbestanden, te verwijderen na de test:
+- `sitemap-forum.xml`: identieke kopie van `sitemap.xml` onder een nieuwe naam, om een eerder bewaard foutresultaat in GSC te omzeilen.
+- `sitemap-host-test.xml`: één URL op dit adres zelf. Wordt deze wel gelezen en `sitemap-forum.xml` niet, dan weigert GSC de URL's van het andere domein.
+
 ## Afspraken
 
 - De inhoud wordt gemaakt door een crawl in gastweergave (verzoeken zonder cookies): enkel wat een bezoeker zonder account te zien krijgt, komt in de sitemap.
