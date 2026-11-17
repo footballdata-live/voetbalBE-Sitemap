@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "VoetbalBE Sitemap",
+  "version": "0.1.0",
+  "description": "Bouwt dagelijks de XML-sitemap van voetbalbe.boards.net in gastweergave en publiceert die naar de sitemap-repo.",
+  "permissions": ["storage", "unlimitedStorage", "alarms", "scripting", "notifications"],
+  "host_permissions": ["https://voetbalbe.boards.net/*", "https://api.github.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["https://voetbalbe.boards.net/*"], "js": ["inhoud.js"], "run_at": "document_idle" }
+  ],
+  "action": { "default_title": "VoetbalBE Sitemap: verslag", "default_icon": { "48": "icoon48.png", "128": "icoon128.png" } },
+  "icons": { "48": "icoon48.png", "128": "icoon128.png" },
+  "options_page": "opties.html"
+}

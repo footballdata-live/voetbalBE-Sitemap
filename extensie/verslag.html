@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>VoetbalBE Sitemap: verslag</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; color: #222; max-width: 980px; margin: 24px auto; padding: 0 16px; }
+  h1 { font-size: 20px; color: #0a3d0a; margin: 0 0 4px; }
+  h2 { font-size: 15px; color: #267326; margin: 24px 0 8px; border-bottom: 1px solid #e8f5e8; padding-bottom: 4px; }
+  .uitleg { color: #555; margin: 4px 0 10px; }
+  button { background: #1b941b; color: #fff; border: 0; border-radius: 6px; padding: 8px 14px; font: inherit; cursor: pointer; margin: 4px 8px 4px 0; }
+  button.licht { background: #e8f5e8; color: #0a3d0a; }
+  button:disabled { opacity: .5; cursor: default; }
+  .band { padding: 10px 12px; border-radius: 6px; background: #f4f4f4; margin: 8px 0; }
+  .band.ok { background: #e8f5e8; color: #0a3d0a; }
+  .band.nok { background: #fdeaea; color: #a00; }
+  .band.loopt { background: #fff4e0; color: #7a4a00; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { color: #555; font-weight: 600; }
+  td.getal { text-align: right; font-variant-numeric: tabular-nums; }
+  .goed { color: #1b941b; font-weight: 600; }
+  .fout { color: #a00; font-weight: 600; }
+  ol.log { padding-left: 0; list-style: none; font-family: ui-monospace, monospace; font-size: 12px; }
+  ol.log li { padding: 2px 0; border-bottom: 1px dotted #eee; }
+  a { color: #267326; }
+</style>
+</head>
+<body>
+<h1>VoetbalBE Sitemap</h1>
+<p class="uitleg">Verslag van de laatste run. <a href="opties.html">Opties</a></p>
+
+<div id="stand" class="band">…</div>
+<p class="uitleg" id="volgende"></p>
+<button id="nuDagelijks">Nu draaien: dagelijks</button>
+<button id="nuVolledig">Nu draaien: volledig</button>
+
+<h2>Bestanden van de laatste run</h2>
+<p class="uitleg">In de droge stand worden ze nergens gepubliceerd; je kunt ze hier downloaden.</p>
+<button class="licht" data-sleutel="sm_xml" data-naam="sitemap.xml" data-type="application/xml">sitemap.xml</button>
+<button class="licht" data-sleutel="sm_data" data-naam="sitemap-data.json" data-type="application/json">sitemap-data.json</button>
+<button class="licht" data-sleutel="sm_state_tekst" data-naam="sitemap-state.json" data-type="application/json">sitemap-state.json</button>
+
+<h2>Samenvatting</h2>
+<div id="samenvatting"></div>
+
+<h2>Boards</h2>
+<div id="boards"></div>
+
+<h2>Custom pages</h2>
+<div id="pages"></div>
+
+<h2>Logboek</h2>
+<ol class="log" id="log"></ol>
+
+<script src="verslag.js"></script>
+</body>
+</html>
