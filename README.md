@@ -8,6 +8,8 @@ XML-sitemap van voetbalbe.boards.net, geserveerd via GitHub Pages.
 |---|---|
 | `sitemap.xml` | De sitemap volgens het sitemaps.org-protocol (0.9). Wordt ingediend in Google Search Console. |
 | `.nojekyll` | Zet de Jekyll-verwerking van GitHub Pages uit. Bestanden worden ongewijzigd geserveerd, en de bekende transiënte buildfouten van Jekyll vallen weg. |
+| `index.html` | Startpagina van dit adres, met een link naar de sitemap. Staat op `noindex`. Nodig omdat GitHub Pages zonder Jekyll geen startpagina uit de README maakt; zonder dit bestand gaf het hoofdadres 404. |
+| `googlea0b48e136cb9b0a2.html` | Verificatiebestand van Google Search Console voor de URL-prefix-property van dit adres. Niet wijzigen of verwijderen. |
 
 Later komt erbij: `sitemap-data.json`, een kleine samenvatting (boards, custom pages, aantallen) voor de custom page `/page/sitemap`.
 
