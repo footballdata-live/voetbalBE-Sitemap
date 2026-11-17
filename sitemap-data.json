@@ -1,0 +1,365 @@
+{
+ "versie": 1,
+ "laatsteWijziging": "2026-11-17",
+ "boards": [
+  {
+   "id": 4,
+   "naam": "Jupiler Pro League",
+   "pad": "/board/4/jupiler-pro-league",
+   "ouder": 89,
+   "threads": 1471,
+   "paginas": 50,
+   "laatst": null
+  },
+  {
+   "id": 9,
+   "naam": "Buitenlands voetbal",
+   "pad": "/board/9/buitenlands-voetbal",
+   "ouder": null,
+   "threads": 95,
+   "paginas": 4,
+   "laatst": null
+  },
+  {
+   "id": 10,
+   "naam": "Ligue 1",
+   "pad": "/board/10/ligue-1",
+   "ouder": 9,
+   "threads": 245,
+   "paginas": 9,
+   "laatst": null
+  },
+  {
+   "id": 11,
+   "naam": "Bundesliga",
+   "pad": "/board/11/bundesliga",
+   "ouder": 9,
+   "threads": 250,
+   "paginas": 9,
+   "laatst": null
+  },
+  {
+   "id": 12,
+   "naam": "Premier League",
+   "pad": "/board/12/premier-league",
+   "ouder": 9,
+   "threads": 443,
+   "paginas": 15,
+   "laatst": null
+  },
+  {
+   "id": 13,
+   "naam": "La Liga",
+   "pad": "/board/13/la-liga",
+   "ouder": 9,
+   "threads": 338,
+   "paginas": 12,
+   "laatst": null
+  },
+  {
+   "id": 14,
+   "naam": "Eredivisie",
+   "pad": "/board/14/eredivisie",
+   "ouder": 9,
+   "threads": 206,
+   "paginas": 7,
+   "laatst": null
+  },
+  {
+   "id": 15,
+   "naam": "Serie A",
+   "pad": "/board/15/serie",
+   "ouder": 9,
+   "threads": 262,
+   "paginas": 9,
+   "laatst": null
+  },
+  {
+   "id": 16,
+   "naam": "Europees voetbal",
+   "pad": "/board/16/europees-voetbal",
+   "ouder": null,
+   "threads": 66,
+   "paginas": 3,
+   "laatst": null
+  },
+  {
+   "id": 17,
+   "naam": "Internationaal voetbal",
+   "pad": "/board/17/internationaal-voetbal",
+   "ouder": null,
+   "threads": 836,
+   "paginas": 28,
+   "laatst": "2026-11-17"
+  },
+  {
+   "id": 18,
+   "naam": "De Zijlijn",
+   "pad": "/board/18/de-zijlijn",
+   "ouder": null,
+   "threads": 1121,
+   "paginas": 38,
+   "laatst": null
+  },
+  {
+   "id": 22,
+   "naam": "Tips & Advies",
+   "pad": "/board/22/noob-centrum",
+   "ouder": null,
+   "threads": 13,
+   "paginas": 1,
+   "laatst": null
+  },
+  {
+   "id": 25,
+   "naam": "Jupiler Pro League seizoen 2026 - 2027",
+   "pad": "/board/25/jupiler-league-seizoen-2026-2027",
+   "ouder": 89,
+   "threads": 306,
+   "paginas": 11,
+   "laatst": null
+  },
+  {
+   "id": 60,
+   "naam": "Europa Conference League",
+   "pad": "/board/60/europa-conference-league",
+   "ouder": 16,
+   "threads": 299,
+   "paginas": 10,
+   "laatst": null
+  },
+  {
+   "id": 61,
+   "naam": "Europa League",
+   "pad": "/board/61/europa-league",
+   "ouder": 16,
+   "threads": 280,
+   "paginas": 10,
+   "laatst": null
+  },
+  {
+   "id": 62,
+   "naam": "Champions League",
+   "pad": "/board/62/champions-league",
+   "ouder": 16,
+   "threads": 447,
+   "paginas": 15,
+   "laatst": null
+  },
+  {
+   "id": 72,
+   "naam": "Croky Cup",
+   "pad": "/board/72/croky-cup",
+   "ouder": 89,
+   "threads": 118,
+   "paginas": 4,
+   "laatst": null
+  },
+  {
+   "id": 75,
+   "naam": "Liga Portugal",
+   "pad": "/board/75/liga-portugal",
+   "ouder": 9,
+   "threads": 55,
+   "paginas": 2,
+   "laatst": null
+  },
+  {
+   "id": 76,
+   "naam": "Andere competities",
+   "pad": "/board/76/andere-competities",
+   "ouder": 9,
+   "threads": 84,
+   "paginas": 3,
+   "laatst": null
+  },
+  {
+   "id": 89,
+   "naam": "Belgisch voetbal",
+   "pad": "/board/89/belgisch-voetbal",
+   "ouder": null,
+   "threads": 31,
+   "paginas": 2,
+   "laatst": null
+  },
+  {
+   "id": 90,
+   "naam": "Challenger Pro League",
+   "pad": "/board/90/challenger-pro-league",
+   "ouder": 89,
+   "threads": 113,
+   "paginas": 4,
+   "laatst": null
+  },
+  {
+   "id": 91,
+   "naam": "Amateurvoetbal",
+   "pad": "/board/91/amateurvoetbal",
+   "ouder": 89,
+   "threads": 93,
+   "paginas": 4,
+   "laatst": null
+  },
+  {
+   "id": 95,
+   "naam": "Aankondigingen",
+   "pad": "/board/95/aankondigingen",
+   "ouder": null,
+   "threads": 26,
+   "paginas": 1,
+   "laatst": null
+  }
+ ],
+ "pages": [
+  {
+   "naam": "beta-krijtbord",
+   "pad": "/page/beta-krijtbord",
+   "titel": "beta-krijtbord"
+  },
+  {
+   "naam": "de-voetbalbe-crack",
+   "pad": "/page/de-voetbalbe-crack",
+   "titel": "De VoetbalBE Crack"
+  },
+  {
+   "naam": "disclaimer",
+   "pad": "/page/disclaimer",
+   "titel": "Disclaimer"
+  },
+  {
+   "naam": "fanpage-anderlecht",
+   "pad": "/page/fanpage-anderlecht",
+   "titel": "fanpage-anderlecht"
+  },
+  {
+   "naam": "fanpage-antwerp",
+   "pad": "/page/fanpage-antwerp",
+   "titel": "fanpage-antwerp"
+  },
+  {
+   "naam": "fanpage-cerclebrugge",
+   "pad": "/page/fanpage-cerclebrugge",
+   "titel": "fanpage-cerclebrugge"
+  },
+  {
+   "naam": "fanpage-charleroi",
+   "pad": "/page/fanpage-charleroi",
+   "titel": "fanpage-charleroi"
+  },
+  {
+   "naam": "fanpage-clubbrugge",
+   "pad": "/page/fanpage-clubbrugge",
+   "titel": "fanpage-clubbrugge"
+  },
+  {
+   "naam": "fanpage-kaagent",
+   "pad": "/page/fanpage-kaagent",
+   "titel": "fanpage-kaagent"
+  },
+  {
+   "naam": "fanpage-kortrijk",
+   "pad": "/page/fanpage-kortrijk",
+   "titel": "fanpage-kortrijk"
+  },
+  {
+   "naam": "fanpage-krcgenk",
+   "pad": "/page/fanpage-krcgenk",
+   "titel": "fanpage-krcgenk"
+  },
+  {
+   "naam": "fanpage-kvmechelen",
+   "pad": "/page/fanpage-kvmechelen",
+   "titel": "fanpage-kvmechelen"
+  },
+  {
+   "naam": "fanpage-lommel",
+   "pad": "/page/fanpage-lommel",
+   "titel": "fanpage-lommel"
+  },
+  {
+   "naam": "fanpage-ohleuven",
+   "pad": "/page/fanpage-ohleuven",
+   "titel": "fanpage-ohleuven"
+  },
+  {
+   "naam": "fanpage-raal",
+   "pad": "/page/fanpage-raal",
+   "titel": "fanpage-raal"
+  },
+  {
+   "naam": "fanpage-skbeveren",
+   "pad": "/page/fanpage-skbeveren",
+   "titel": "fanpage-skbeveren"
+  },
+  {
+   "naam": "fanpage-standard",
+   "pad": "/page/fanpage-standard",
+   "titel": "fanpage-standard"
+  },
+  {
+   "naam": "fanpage-stvv",
+   "pad": "/page/fanpage-stvv",
+   "titel": "fanpage-stvv"
+  },
+  {
+   "naam": "fanpage-union",
+   "pad": "/page/fanpage-union",
+   "titel": "fanpage-union"
+  },
+  {
+   "naam": "fanpage-westerlo",
+   "pad": "/page/fanpage-westerlo",
+   "titel": "fanpage-westerlo"
+  },
+  {
+   "naam": "fanpage-zultewaregem",
+   "pad": "/page/fanpage-zultewaregem",
+   "titel": "fanpage-zultewaregem"
+  },
+  {
+   "naam": "fanpages",
+   "pad": "/page/fanpages",
+   "titel": "fanpages"
+  },
+  {
+   "naam": "games",
+   "pad": "/page/games",
+   "titel": "games"
+  },
+  {
+   "naam": "huisreglement",
+   "pad": "/page/huisreglement",
+   "titel": "Huisreglement"
+  },
+  {
+   "naam": "jpl26-27",
+   "pad": "/page/jpl26-27",
+   "titel": "JPL26-27"
+  },
+  {
+   "naam": "manager",
+   "pad": "/page/manager",
+   "titel": "manager"
+  },
+  {
+   "naam": "Matchcenter",
+   "pad": "/page/Matchcenter",
+   "titel": "Matchcenter"
+  },
+  {
+   "naam": "privacybeleid",
+   "pad": "/page/privacybeleid",
+   "titel": "Privacybeleid"
+  },
+  {
+   "naam": "pronostiek",
+   "pad": "/page/pronostiek",
+   "titel": "Pronostiek"
+  },
+  {
+   "naam": "sitemap",
+   "pad": "/page/sitemap",
+   "titel": "sitemap"
+  }
+ ]
+}
