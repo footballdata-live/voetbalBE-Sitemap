@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-17",
+ "laatsteWijziging": "2026-11-18",
  "boards": [
   {
    "id": 4,
@@ -52,9 +52,9 @@
    "naam": "La Liga",
    "pad": "/board/13/la-liga",
    "ouder": 9,
-   "threads": 338,
+   "threads": 339,
    "paginas": 12,
-   "laatst": null
+   "laatst": "2026-11-18"
   },
   {
    "id": 14,
@@ -81,7 +81,7 @@
    "ouder": null,
    "threads": 66,
    "paginas": 3,
-   "laatst": null
+   "laatst": "2026-11-18"
   },
   {
    "id": 17,
@@ -90,7 +90,7 @@
    "ouder": null,
    "threads": 836,
    "paginas": 28,
-   "laatst": "2026-11-17"
+   "laatst": "2026-11-18"
   },
   {
    "id": 18,
@@ -99,7 +99,7 @@
    "ouder": null,
    "threads": 1121,
    "paginas": 38,
-   "laatst": null
+   "laatst": "2026-11-18"
   },
   {
    "id": 22,
