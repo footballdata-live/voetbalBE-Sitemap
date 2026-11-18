@@ -1,15 +1,14 @@
 # voetbalBE-Sitemap
 
-XML-sitemap van voetbalbe.boards.net, geserveerd via GitHub Pages.
+XML-sitemap van voetbalbe.boards.net, geserveerd via GitHub Pages. Google leest hem via de Cloudflare Worker `voetbalbe-sitemap` (zie "Google Search Console").
 
 ## Bestanden
 
 | Bestand | Inhoud |
 |---|---|
-| `sitemap.xml` | De sitemap volgens het sitemaps.org-protocol (0.9). Wordt ingediend in Google Search Console. |
+| `sitemap.xml` | De sitemap volgens het sitemaps.org-protocol (0.9). Ingediend in Google Search Console via de Worker, niet via dit adres. |
 | `.nojekyll` | Zet de Jekyll-verwerking van GitHub Pages uit. Bestanden worden ongewijzigd geserveerd, en de bekende transiënte buildfouten van Jekyll vallen weg. |
 | `index.html` | Startpagina van dit adres, met een link naar de sitemap. Staat op `noindex`. Nodig omdat GitHub Pages zonder Jekyll geen startpagina uit de README maakt; zonder dit bestand gaf het hoofdadres 404. |
-| `googlea0b48e136cb9b0a2.html` | Verificatiebestand van Google Search Console voor de URL-prefix-property van dit adres. Niet wijzigen of verwijderen. |
 | `extensie/` | Broncode van de Chrome-extensie "VoetbalBE Sitemap" die de bestanden hieronder maakt en publiceert. Bevat geen sleutels. |
 
 Zodra de extensie publiceert, schrijft ze ook:
@@ -18,6 +17,14 @@ Zodra de extensie publiceert, schrijft ze ook:
 |---|---|
 | `sitemap-data.json` | De structuur voor de latere custom page `/page/sitemap`: publieke boards (naam, pad, ouder, aantal threads en pagina's, laatste wijziging) en publieke custom pages. |
 | `sitemap-state.json` | De toestand van de crawl: per thread de reactieteller en de lastmod-datums per pagina. Dient als reservekopie, zodat de datums een herinstallatie overleven. |
+
+## Google Search Console
+
+Google leest de sitemap op `https://voetbalbe-sitemap.matchcenter-bot.workers.dev/sitemap.xml`. Die Worker (v2.0) is enkel een proxy: hij geeft `sitemap.xml` van dit adres byte voor byte door als `application/xml`, en serveert daarnaast een `robots.txt` met een Sitemap-regel en het verificatiebestand voor de URL-prefix-property van zijn eigen adres. Al de rest geeft 404. Is dit adres onbereikbaar, dan antwoordt hij 503.
+
+Waarom niet rechtstreeks: op 17 november 2026 werd de sitemap ingediend in een property voor dit github.io-adres. Google haalde hem nooit op ("Kan niet ophalen", geen datum bij "Laatst gelezen"), en dat gold ook voor een testbestand met één URL op dit adres zelf. Hetzelfde bestand via de Worker werd dezelfde dag gelezen: status Succesvol, 16.544 ontdekte pagina's. Het probleem was dus de host GitHub Pages, niet de inhoud. De property voor dit adres is op 18 november 2026 verwijderd.
+
+Dat de URL's op een ander domein staan dan de sitemap, is geen probleem: de properties van voetbalbe.boards.net en van de Worker zijn geverifieerd in hetzelfde account.
 
 ## De extensie
 
@@ -52,9 +59,9 @@ Chrome-extensie (Manifest V3), uitgepakt geladen op de computer van de beheerder
 
 **17 november 2026 — extensie 0.1.0** in de map `extensie/`, nog in de droge stand. Getest in een simulatie (echte `background.js` en `kern.js` tegen een nagebootst forum en nagebootste Chrome- en GitHub-API's): eerste volledige crawl, dagelijkse run met wijzigingen, publiceren en niet opnieuw publiceren zonder wijzigingen, zondagse volledige crawl met verwijderde en eerder gemiste threads, een blijvend falend board, een onderbroken en hervatte run, opgeven na 3 hervattingen, en de krimpgrens.
 
-Tijdelijke testbestanden, te verwijderen na de test:
-- `sitemap-forum.xml`: identieke kopie van `sitemap.xml` onder een nieuwe naam, om een eerder bewaard foutresultaat in GSC te omzeilen.
-- `sitemap-host-test.xml`: één URL op dit adres zelf. Wordt deze wel gelezen en `sitemap-forum.xml` niet, dan weigert GSC de URL's van het andere domein.
+**17 november 2026 — eerste echte run** van de extensie: 16.544 URL's gepubliceerd.
+
+**18 november 2026 — via de Worker gelezen** door Google Search Console (zie hierboven). Verwijderd: de testbestanden `sitemap-forum.xml` en `sitemap-host-test.xml`, en het verificatiebestand van de opgeheven github.io-property.
 
 ## Afspraken
 
