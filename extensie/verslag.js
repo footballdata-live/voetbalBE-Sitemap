@@ -103,6 +103,19 @@ async function toon() {
   const pRijen = Object.keys(v.pages || {}).sort((x, y) => x.toLowerCase() < y.toLowerCase() ? -1 : 1).map((n) => [n, { tekst: v.pages[n], klasse: v.pages[n] === 'publiek' ? 'goed' : '' }]);
   p.appendChild(pRijen.length ? tabel(['Page', 'Stand'], pRijen) : el('p', 'Geen custom pages gelezen in deze run.', 'uitleg'));
 
+  const so = $('social');
+  so.textContent = '';
+  const sv = v.social;
+  if (!sv) {
+    so.appendChild(el('p', 'Geen gegevens in deze run.', 'uitleg'));
+  } else {
+    so.appendChild(el('p', 'Stand: ' + (sv.stand || '-') + (sv.neurons ? ' · AI vandaag: ' + sv.neurons + ' neurons' : ''), 'uitleg'));
+    if (sv.resultaten && sv.resultaten.length) {
+      const sRijen = sv.resultaten.map((x) => [x.id, x.titel, x.categorie, { tekst: x.socials ? 'ja' : 'nee', klasse: x.socials ? 'goed' : '' }, x.door, x.reden]);
+      so.appendChild(tabel(['ID', 'Titel', 'Categorie', 'Socials', 'Door', 'Reden'], sRijen));
+    }
+  }
+
   const l = $('log');
   l.textContent = '';
   (v.log || []).forEach((r) => {

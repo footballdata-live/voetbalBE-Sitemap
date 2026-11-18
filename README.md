@@ -51,6 +51,8 @@ Chrome-extensie (Manifest V3), uitgepakt geladen op de computer van de beheerder
 
 **Token.** Een fine-grained GitHub-token met enkel toegang tot deze repo (Contents: lezen en schrijven). Staat enkel in de lokale opslag van de extensie, wordt nooit getoond of in een verslag gezet, en gaat enkel naar api.github.com. De extensie schrijft enkel naar deze repo.
 
+**Socials (sinds 0.2.0).** Na de crawl leest de extensie de openingspost van elk echt nieuw topic, in gastweergave: een hoger ID dan wat de vorige keer al doorgestuurd werd, en niet in board 25 (de matchtopics). Ze stuurt die in één call naar de intake-route van de opinions-Worker, die met vaste regels en Workers AI beslist wat in de wachtrij van de social bot komt. Adres en sleutel van die route staan enkel in de opties van de extensie, niet in deze repo. Zonder adres of sleutel wordt de stap overgeslagen. Mislukt de call, dan komen dezelfde topics de volgende run opnieuw; een fout in deze stap houdt de sitemap nooit tegen. De beslissingen staan op de verslagpagina, onder "Socials".
+
 **Bestanden.** `manifest.json`, `background.js` (planning, crawl, publiceren), `kern.js` (datums, lastmod-regels, XML en JSON bouwen; zonder Chrome-API's), `inhoud.js` (meldt een paginabezoek), `opties.html/.js` (token, droge stand, gegevens wissen), `verslag.html/.js` (laatste run, downloads, knoppen om nu te draaien), twee iconen.
 
 ## Stand
@@ -62,6 +64,8 @@ Chrome-extensie (Manifest V3), uitgepakt geladen op de computer van de beheerder
 **17 november 2026 — eerste echte run** van de extensie: 16.544 URL's gepubliceerd.
 
 **18 november 2026 — via de Worker gelezen** door Google Search Console (zie hierboven). Verwijderd: de testbestanden `sitemap-forum.xml` en `sitemap-host-test.xml`, en het verificatiebestand van de opgeheven github.io-property.
+
+**18 november 2026 — extensie 0.2.0.** Stuurt nieuwe topics naar de intake van de socials (zie "Socials" hierboven). Nieuw: host-permissie voor `*.workers.dev`, een blok "Socials" in de opties (adres, sleutel, verbindingstest) en op de verslagpagina. Getest in een simulatie: run zonder instellingen (overgeslagen), eerste run met instellingen (enkel topics sinds de vorige crawl, board 25 overgeslagen), run zonder nieuwe topics, een geweigerde call (niets verloren, melding) en het inhalen bij de volgende run.
 
 ## Afspraken
 

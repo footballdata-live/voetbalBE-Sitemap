@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "VoetbalBE Sitemap",
-  "version": "0.1.0",
-  "description": "Bouwt dagelijks de XML-sitemap van voetbalbe.boards.net in gastweergave en publiceert die naar de sitemap-repo.",
+  "version": "0.2.0",
+  "description": "Bouwt dagelijks de XML-sitemap van voetbalbe.boards.net in gastweergave en publiceert die naar de sitemap-repo. Stuurt nieuwe topics naar de intake van de socials.",
   "permissions": ["storage", "unlimitedStorage", "alarms", "scripting", "notifications"],
-  "host_permissions": ["https://voetbalbe.boards.net/*", "https://api.github.com/*"],
+  "host_permissions": ["https://voetbalbe.boards.net/*", "https://api.github.com/*", "https://*.workers.dev/*"],
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     { "matches": ["https://voetbalbe.boards.net/*"], "js": ["inhoud.js"], "run_at": "document_idle" }

@@ -1,8 +1,14 @@
-// VoetbalBE Sitemap 0.1.0 (17 november 2026)
+// VoetbalBE Sitemap 0.2.0 (18 november 2026)
 //
 // Crawlt voetbalbe.boards.net in gastweergave en bouwt sitemap.xml,
 // sitemap-data.json en sitemap-state.json. Publiceert naar de repo
 // footballdata-live/voetbalBE-Sitemap, enkel als de droge stand uit staat.
+//
+// 0.2.0: na de crawl leest de extensie de openingspost van elk echt nieuw
+// topic (hoger ID dan het hoogste gekende, zonder board 25) en stuurt ze
+// in één call naar de intake-route van de opinions-Worker, die beslist wat
+// naar de socials gaat. Adres en sleutel staan in de opties, niet in de
+// code. Zonder adres of sleutel wordt deze stap overgeslagen.
 //
 // Wanneer:
 //   - dagelijks om 09:00 (Brussel) via een timer in Chrome;
@@ -40,6 +46,10 @@ const SLOT_VERVAL_MS = 15 * 60 * 1000;
 const MAX_HERVATTINGEN = 3;
 const KRIMP_GRENS = 0.9;                 // minder dan 90% van de vorige keer = niet publiceren
 const MAX_LOG = 400;
+
+// Socials (0.2.0)
+const SOCIAL_MAX_TOPICS = 60;            // per call naar de Worker, zoals de Worker toelaat
+const SOCIAL_BOARDS_OVERSLAAN = ['25'];  // matchtopics: die regelt de social bot zelf
 
 // Gekende boards en pages: altijd bezocht, ook als er (nog) geen link naar is.
 const BEKENDE_BOARDS = ['89', '4', '90', '91', '72', '9', '14', '12', '11', '13', '15', '10', '75', '76', '16', '62', '61', '60', '17', '18', '22', '25', '95'];
@@ -96,6 +106,9 @@ chrome.runtime.onMessage.addListener((bericht, afzender, antwoord) => {
     start(bericht.soort, 'knop').catch((e) => console.warn('Sitemap:', fout(e)));
   } else if (bericht.type === 'github_test') {
     githubTest().then(antwoord, (e) => antwoord({ ok: false, tekst: fout(e) }));
+    return true;
+  } else if (bericht.type === 'social_test') {
+    socialTest().then(antwoord, (e) => antwoord({ ok: false, tekst: fout(e) }));
     return true;
   } else if (bericht.type === 'wekker') {
     chrome.alarms.get(WEKKER).then((a) => antwoord({ wanneer: a ? a.scheduledTime : null }));
@@ -228,6 +241,53 @@ async function leesInPagina(pad, boardId) {
   return uit;
 }
 
+// Eén topic lezen voor de socials (0.2.0). Ook in het forumvenster, zonder
+// cookies, en op zichzelf staand. Selectors bewezen in de analyse van 18/11
+// (686 topics in gastweergave): tr.item.post, .message, .poll.show.
+async function leesTopicInPagina(pad) {
+  const uit = { status: 0, fout: '', titel: '', oops: false, tekst: null, domeinen: [], poll: false, jplmc: false, auteur_id: null };
+  let res;
+  let html = '';
+  try {
+    res = await fetch(pad, { credentials: 'omit', cache: 'no-store' });
+    html = await res.text();
+  } catch (e) {
+    uit.fout = String((e && e.message) || e);
+    return uit;
+  }
+  uit.status = res.status;
+  if (res.status !== 200) return uit;
+
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const titel = (doc.title || '').trim();
+  uit.oops = /^Oops/.test(titel);
+  uit.titel = titel.split('|')[0].trim();
+  if (uit.oops) return uit;
+  uit.poll = !!doc.querySelector('.poll.show');
+
+  const eerste = doc.querySelector('tr.item.post');
+  if (!eerste) return uit;
+  const u = eerste.querySelector('a.o-user-link, a.user-link');
+  if (u) {
+    const m = /\/user\/(\d+)/.exec(u.getAttribute('href') || '');
+    if (m) uit.auteur_id = Number(m[1]);
+  }
+  const msg = eerste.querySelector('.message');
+  if (!msg) return uit;
+  const kopie = msg.cloneNode(true);
+  // Citaten weg: dat is andermans tekst.
+  kopie.querySelectorAll('blockquote, .quote').forEach((q) => { if (q.parentNode) q.parentNode.removeChild(q); });
+  kopie.querySelectorAll('a[href]').forEach((a) => {
+    let h;
+    try { h = new URL(a.getAttribute('href'), location.origin).hostname; } catch (e) { return; }
+    if (h !== location.hostname && uit.domeinen.indexOf(h) === -1 && uit.domeinen.length < 20) uit.domeinen.push(h);
+  });
+  const tekst = (kopie.textContent || '').replace(/\s+/g, ' ').trim();
+  uit.tekst = tekst.length > 4000 ? tekst.substring(0, 4000) : tekst;
+  uit.jplmc = /\[JPLMC id=/i.test(tekst);
+  return uit;
+}
+
 // ---------------------------------------------------------------------------
 // Het crawlvenster
 // ---------------------------------------------------------------------------
@@ -261,13 +321,14 @@ async function openVenster() {
 }
 
 // Eén pagina lezen, met herpogingen bij een netwerkfout, HTTP 202 (PoW) of 5xx.
-// Gooit 'venster' als het crawlvenster weg is.
-async function haal(ctx, pad, boardId) {
+// Gooit 'venster' als het crawlvenster weg is. Met `lezer` (0.2.0) wordt een
+// andere leesfunctie gebruikt, met enkel het pad als argument.
+async function haal(ctx, pad, boardId, lezer) {
   for (let poging = 0; poging <= HERPOGINGEN_MS.length; poging++) {
     await wacht(PAUZE_MS);
     let r;
     try {
-      r = await voerUit(ctx.tabId, leesInPagina, [pad, boardId || null]);
+      r = lezer ? await voerUit(ctx.tabId, lezer, [pad]) : await voerUit(ctx.tabId, leesInPagina, [pad, boardId || null]);
     } catch (e) {
       const v = new Error('crawlvenster niet meer bereikbaar: ' + fout(e));
       v.venster = true;
@@ -423,6 +484,20 @@ async function start(soortGevraagd, bron) {
         });
       }
       await bewaar(run, werk);
+    }
+    if (run.fase === 'pages') {
+      run.fase = 'social';
+      await bewaar(run, werk);
+    }
+
+    // Fase 3b (0.2.0): nieuwe topics naar de intake van de socials. Een fout
+    // hier houdt de sitemap nooit tegen.
+    if (run.fase === 'social') {
+      try {
+        await socialIntake(ctx, run, werk, maxBekend);
+      } catch (e) {
+        log(run, 'Socials: ' + fout(e), false);
+      }
     }
     run.fase = 'afronden';
     await bewaar(run, werk);
@@ -597,6 +672,127 @@ async function rondAf(run, werk, toestandVoor, volledig, gezien) {
     await meld('Sitemap onvolledig', run.mislukt.length + ' board(s) niet gelezen: ' + run.mislukt.join(', ') + '. Hun vorige gegevens blijven staan.');
   }
   await zet({ sm_run: run, sm_werk: null, sm_verslag: run, sm_laatste_run: run.start });
+}
+
+// ---------------------------------------------------------------------------
+// Socials (0.2.0)
+// ---------------------------------------------------------------------------
+
+function hoogsteId(threads) {
+  const ids = Object.keys(threads).map(Number);
+  return ids.length ? Math.max.apply(null, ids) : null;
+}
+
+// Stuurt de openingspost van de echt nieuwe topics in één call naar de
+// intake-route. "Echt nieuw" = hoger ID dan wat de vorige keer al doorgestuurd
+// werd (sm_social_laatste), of bij de eerste keer: dan het hoogste gekende
+// vóór deze run. Zo gaat er nooit een achterstand mee. Mislukt de call, dan
+// blijft sm_social_laatste staan en komen dezelfde topics de volgende run
+// opnieuw. Hoogstens SOCIAL_MAX_TOPICS per run; de rest volgt de volgende run.
+async function socialIntake(ctx, run, werk, maxBekend) {
+  const o = await lees(['sm_social_url', 'sm_social_key', 'sm_social_laatste']);
+  run.social = { stand: '', verstuurd: 0, toegevoegd: 0, neurons: null, resultaten: [] };
+  if (!o.sm_social_url || !o.sm_social_key) {
+    run.social.stand = 'niet ingesteld (adres of sleutel ontbreekt in de opties)';
+    log(run, 'Socials: niet ingesteld; overgeslagen.', null);
+    return;
+  }
+
+  const basis = typeof o.sm_social_laatste === 'number' ? o.sm_social_laatste : maxBekend;
+  const hoogste = hoogsteId(werk.threads);
+  if (basis === null) {
+    run.social.stand = 'eerste crawl: niets doorgestuurd';
+    if (hoogste !== null) await zet({ sm_social_laatste: hoogste });
+    log(run, 'Socials: eerste crawl, niets doorgestuurd.', null);
+    return;
+  }
+
+  const nieuw = Object.keys(werk.threads).map(Number)
+    .filter((id) => id > basis && SOCIAL_BOARDS_OVERSLAAN.indexOf(String(werk.threads[id].b)) === -1)
+    .sort((a, b) => a - b);
+  if (!nieuw.length) {
+    run.social.stand = 'geen nieuwe topics';
+    if (hoogste !== null && hoogste > basis) await zet({ sm_social_laatste: hoogste });
+    log(run, 'Socials: geen nieuwe topics.', true);
+    return;
+  }
+
+  const deze = nieuw.slice(0, SOCIAL_MAX_TOPICS);
+  const laatsteVanDeze = deze[deze.length - 1];
+  const topics = [];
+  for (const id of deze) {
+    const t = werk.threads[id];
+    const r = await haal(ctx, '/thread/' + id, null, leesTopicInPagina);
+    if (!r || r.status !== 200 || r.oops || r.tekst === null) {
+      run.social.resultaten.push({ id: String(id), titel: (r && r.titel) || '', categorie: 'niet gelezen', socials: false, door: 'extensie',
+        reden: r ? (r.fout || (r.oops ? 'Oops' : 'HTTP ' + r.status)) : 'geen antwoord' });
+      continue;
+    }
+    topics.push({
+      id: String(id), url: FORUM + t.p, board: String(t.b), titel: r.titel, tekst: r.tekst,
+      domeinen: r.domeinen, poll: r.poll, jplmc: r.jplmc, auteur_id: r.auteur_id
+    });
+  }
+
+  if (!topics.length) {
+    run.social.stand = 'geen leesbare nieuwe topics';
+    await zet({ sm_social_laatste: laatsteVanDeze });
+    log(run, 'Socials: ' + deze.length + ' nieuw topic(s), geen enkel leesbaar.', false);
+    return;
+  }
+
+  let res;
+  let data = null;
+  try {
+    res = await fetch(o.sm_social_url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-API-Key': o.sm_social_key },
+      body: JSON.stringify({ topics: topics }),
+      cache: 'no-store'
+    });
+    try { data = await res.json(); } catch (e) { data = null; }
+  } catch (e) {
+    run.social.stand = 'intake niet bereikt: ' + fout(e);
+    log(run, 'Socials: ' + run.social.stand + '. Volgende run opnieuw.', false);
+    await meld('Socials: intake mislukt', run.social.stand);
+    return;
+  }
+  if (!res.ok || !data) {
+    run.social.stand = 'intake weigerde: HTTP ' + res.status + (data && data.error ? ' (' + data.error + ')' : '');
+    log(run, 'Socials: ' + run.social.stand + '. Volgende run opnieuw.', false);
+    await meld('Socials: intake mislukt', run.social.stand);
+    return;
+  }
+
+  run.social.verstuurd = topics.length;
+  run.social.toegevoegd = data.toegevoegd || 0;
+  run.social.neurons = data.neurons_vandaag !== undefined ? data.neurons_vandaag + ' / ' + data.plafond : null;
+  (data.resultaten || []).forEach((x) => {
+    run.social.resultaten.push({ id: String(x.id), titel: x.titel || '', categorie: x.categorie || '', socials: x.socials === true, door: x.door || '', reden: x.reden || '' });
+  });
+  run.social.stand = topics.length + ' beoordeeld, ' + run.social.toegevoegd + ' naar de wachtrij' +
+    (nieuw.length > deze.length ? '; ' + (nieuw.length - deze.length) + ' volgen de volgende run' : '');
+  await zet({ sm_social_laatste: laatsteVanDeze });
+  log(run, 'Socials: ' + run.social.stand + '.', true);
+}
+
+// Test vanuit de opties: een lege lijst kost niets en toont of adres en
+// sleutel kloppen.
+async function socialTest() {
+  const o = await lees(['sm_social_url', 'sm_social_key']);
+  if (!o.sm_social_url || !o.sm_social_key) return { ok: false, tekst: 'Adres of sleutel ontbreekt.' };
+  const res = await fetch(o.sm_social_url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-API-Key': o.sm_social_key },
+    body: JSON.stringify({ topics: [] }),
+    cache: 'no-store'
+  });
+  let data = null;
+  try { data = await res.json(); } catch (e) { data = null; }
+  if (res.ok && data && data.status === 'ok') {
+    return { ok: true, tekst: 'Intake bereikbaar, sleutel aanvaard. Model: ' + data.model + '. AI vandaag: ' + data.neurons_vandaag + ' van ' + data.plafond + ' neurons.' };
+  }
+  return { ok: false, tekst: 'HTTP ' + res.status + (data && data.error ? ': ' + data.error : '') };
 }
 
 // ---------------------------------------------------------------------------

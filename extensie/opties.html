@@ -8,7 +8,7 @@
   h1 { font-size: 20px; color: #0a3d0a; margin: 0 0 4px; }
   h2 { font-size: 15px; color: #267326; margin: 24px 0 8px; border-bottom: 1px solid #e8f5e8; padding-bottom: 4px; }
   p.uitleg { color: #555; margin: 4px 0 10px; }
-  input[type=password] { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+  input[type=password], input[type=text] { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
   button { background: #1b941b; color: #fff; border: 0; border-radius: 6px; padding: 8px 14px; font: inherit; cursor: pointer; margin: 8px 8px 0 0; }
   button.licht { background: #e8f5e8; color: #0a3d0a; }
   button.gevaar { background: #fff; color: #a00; border: 1px solid #a00; }
@@ -35,6 +35,16 @@
 <button id="testToken" class="licht">Verbinding testen</button>
 <button id="wisToken" class="gevaar">Token wissen</button>
 <p id="tokenmelding" class="melding" hidden></p>
+
+<h2>Socials</h2>
+<p class="uitleg">Na elke run gaan de echt nieuwe topics naar de intake van de opinions-Worker, die beslist wat op Bluesky en Mastodon komt. Zonder adres of sleutel wordt die stap overgeslagen. Beide worden enkel op deze computer bewaard; de sleutel wordt nooit teruggetoond.</p>
+<p id="socialstand" class="melding">…</p>
+<input type="text" id="socialUrl" placeholder="Adres van de intake (https://…/intake)" autocomplete="off">
+<input type="password" id="socialKey" placeholder="Nieuwe sleutel plakken" autocomplete="off" style="margin-top:8px">
+<button id="bewaarSocial">Bewaren</button>
+<button id="testSocial" class="licht">Verbinding testen</button>
+<button id="wisSocial" class="gevaar">Wissen</button>
+<p id="socialmelding" class="melding" hidden></p>
 
 <h2>Gegevens</h2>
 <p class="uitleg">Wist de bewaarde toestand (reactietellers en datums). De volgende run wordt dan een volledige crawl, en alle lastmod-datums beginnen opnieuw leeg.</p>

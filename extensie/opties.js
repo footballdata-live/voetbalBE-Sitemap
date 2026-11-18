@@ -10,10 +10,41 @@ function toon(el, tekst, ok) {
 }
 
 async function laad() {
-  const o = await chrome.storage.local.get(['sm_droog', 'sm_pat']);
+  const o = await chrome.storage.local.get(['sm_droog', 'sm_pat', 'sm_social_url', 'sm_social_key']);
   $('droog').checked = o.sm_droog !== false;
   toon($('tokenstand'), o.sm_pat ? 'Er is een token ingesteld.' : 'Er is nog geen token ingesteld.', !!o.sm_pat);
+  const klaar = !!(o.sm_social_url && o.sm_social_key);
+  toon($('socialstand'), klaar ? 'Adres en sleutel zijn ingesteld.' :
+    (o.sm_social_url ? 'Adres ingesteld, sleutel ontbreekt.' : o.sm_social_key ? 'Sleutel ingesteld, adres ontbreekt.' : 'Nog niet ingesteld: deze stap wordt overgeslagen.'), klaar);
+  if (o.sm_social_url && !$('socialUrl').value) $('socialUrl').value = o.sm_social_url;
 }
+
+$('bewaarSocial').addEventListener('click', async () => {
+  const url = $('socialUrl').value.trim();
+  const sleutel = $('socialKey').value.trim();
+  if (url && !/^https:\/\/[^\s]+\/intake$/.test(url)) { toon($('socialmelding'), 'Het adres moet met https:// beginnen en op /intake eindigen.', false); return; }
+  const nieuw = {};
+  if (url) nieuw.sm_social_url = url;
+  if (sleutel) nieuw.sm_social_key = sleutel;
+  if (!Object.keys(nieuw).length) { toon($('socialmelding'), 'Vul een adres of een sleutel in.', false); return; }
+  await chrome.storage.local.set(nieuw);
+  $('socialKey').value = '';
+  toon($('socialmelding'), 'Bewaard.', true);
+  laad();
+});
+
+$('testSocial').addEventListener('click', async () => {
+  toon($('socialmelding'), 'Bezig…', null);
+  const r = await chrome.runtime.sendMessage({ type: 'social_test' });
+  toon($('socialmelding'), r ? r.tekst : 'Geen antwoord.', r ? r.ok : false);
+});
+
+$('wisSocial').addEventListener('click', async () => {
+  await chrome.storage.local.remove(['sm_social_url', 'sm_social_key']);
+  $('socialUrl').value = '';
+  toon($('socialmelding'), 'Adres en sleutel gewist.', true);
+  laad();
+});
 
 $('droog').addEventListener('change', async () => {
   await chrome.storage.local.set({ sm_droog: $('droog').checked });
