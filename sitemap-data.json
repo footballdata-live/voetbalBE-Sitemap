@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-19",
+ "laatsteWijziging": "2026-11-20",
  "boards": [
   {
    "id": 4,
@@ -9,16 +9,16 @@
    "ouder": 89,
    "threads": 1472,
    "paginas": 50,
-   "laatst": "2026-11-19"
+   "laatst": "2026-11-20"
   },
   {
    "id": 9,
    "naam": "Buitenlands voetbal",
    "pad": "/board/9/buitenlands-voetbal",
    "ouder": null,
-   "threads": 95,
+   "threads": 96,
    "paginas": 4,
-   "laatst": null
+   "laatst": "2026-11-20"
   },
   {
    "id": 10,
@@ -34,9 +34,9 @@
    "naam": "Bundesliga",
    "pad": "/board/11/bundesliga",
    "ouder": 9,
-   "threads": 250,
+   "threads": 251,
    "paginas": 9,
-   "laatst": null
+   "laatst": "2026-11-20"
   },
   {
    "id": 12,
@@ -54,7 +54,7 @@
    "ouder": 9,
    "threads": 339,
    "paginas": 12,
-   "laatst": "2026-11-19"
+   "laatst": "2026-11-20"
   },
   {
    "id": 14,
@@ -90,7 +90,7 @@
    "ouder": null,
    "threads": 837,
    "paginas": 28,
-   "laatst": "2026-11-19"
+   "laatst": "2026-11-20"
   },
   {
    "id": 18,
@@ -99,7 +99,7 @@
    "ouder": null,
    "threads": 1121,
    "paginas": 38,
-   "laatst": "2026-11-19"
+   "laatst": "2026-11-20"
   },
   {
    "id": 22,
