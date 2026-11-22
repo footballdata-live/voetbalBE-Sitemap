@@ -1,15 +1,15 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-21",
+ "laatsteWijziging": "2026-11-22",
  "boards": [
   {
    "id": 4,
    "naam": "Jupiler Pro League",
    "pad": "/board/4/jupiler-pro-league",
    "ouder": 89,
-   "threads": 1474,
+   "threads": 1477,
    "paginas": 50,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 9,
@@ -27,7 +27,7 @@
    "ouder": 9,
    "threads": 245,
    "paginas": 9,
-   "laatst": null
+   "laatst": "2026-11-22"
   },
   {
    "id": 11,
@@ -36,7 +36,7 @@
    "ouder": 9,
    "threads": 251,
    "paginas": 9,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 12,
@@ -45,7 +45,7 @@
    "ouder": 9,
    "threads": 443,
    "paginas": 15,
-   "laatst": null
+   "laatst": "2026-11-22"
   },
   {
    "id": 13,
@@ -54,7 +54,7 @@
    "ouder": 9,
    "threads": 339,
    "paginas": 12,
-   "laatst": "2026-11-20"
+   "laatst": "2026-11-22"
   },
   {
    "id": 14,
@@ -97,9 +97,9 @@
    "naam": "De Zijlijn",
    "pad": "/board/18/de-zijlijn",
    "ouder": null,
-   "threads": 1121,
+   "threads": 1122,
    "paginas": 38,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 22,
@@ -117,7 +117,7 @@
    "ouder": 89,
    "threads": 306,
    "paginas": 11,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 60,
@@ -142,9 +142,9 @@
    "naam": "Champions League",
    "pad": "/board/62/champions-league",
    "ouder": 16,
-   "threads": 447,
+   "threads": 448,
    "paginas": 15,
-   "laatst": null
+   "laatst": "2026-11-22"
   },
   {
    "id": 72,
@@ -178,9 +178,9 @@
    "naam": "Belgisch voetbal",
    "pad": "/board/89/belgisch-voetbal",
    "ouder": null,
-   "threads": 31,
+   "threads": 32,
    "paginas": 2,
-   "laatst": null
+   "laatst": "2026-11-22"
   },
   {
    "id": 90,
@@ -189,7 +189,7 @@
    "ouder": 89,
    "threads": 114,
    "paginas": 4,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 91,
@@ -198,7 +198,7 @@
    "ouder": 89,
    "threads": 93,
    "paginas": 4,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-22"
   },
   {
    "id": 95,
