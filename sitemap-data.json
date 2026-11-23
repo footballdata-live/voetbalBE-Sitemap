@@ -1,15 +1,15 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-22",
+ "laatsteWijziging": "2026-11-23",
  "boards": [
   {
    "id": 4,
    "naam": "Jupiler Pro League",
    "pad": "/board/4/jupiler-pro-league",
    "ouder": 89,
-   "threads": 1477,
+   "threads": 1478,
    "paginas": 50,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 9,
@@ -18,7 +18,7 @@
    "ouder": null,
    "threads": 96,
    "paginas": 4,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-23"
   },
   {
    "id": 10,
@@ -36,7 +36,7 @@
    "ouder": 9,
    "threads": 251,
    "paginas": 9,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 12,
@@ -45,7 +45,7 @@
    "ouder": 9,
    "threads": 443,
    "paginas": 15,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 13,
@@ -54,16 +54,16 @@
    "ouder": 9,
    "threads": 339,
    "paginas": 12,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 14,
    "naam": "Eredivisie",
    "pad": "/board/14/eredivisie",
    "ouder": 9,
-   "threads": 207,
+   "threads": 208,
    "paginas": 7,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-23"
   },
   {
    "id": 15,
@@ -72,7 +72,7 @@
    "ouder": 9,
    "threads": 262,
    "paginas": 9,
-   "laatst": null
+   "laatst": "2026-11-23"
   },
   {
    "id": 16,
@@ -88,18 +88,18 @@
    "naam": "Internationaal voetbal",
    "pad": "/board/17/internationaal-voetbal",
    "ouder": null,
-   "threads": 842,
+   "threads": 843,
    "paginas": 29,
-   "laatst": "2026-11-21"
+   "laatst": "2026-11-23"
   },
   {
    "id": 18,
    "naam": "De Zijlijn",
    "pad": "/board/18/de-zijlijn",
    "ouder": null,
-   "threads": 1122,
+   "threads": 1124,
    "paginas": 38,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 22,
@@ -117,7 +117,7 @@
    "ouder": 89,
    "threads": 306,
    "paginas": 11,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 60,
@@ -144,7 +144,7 @@
    "ouder": 16,
    "threads": 448,
    "paginas": 15,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 72,
@@ -180,16 +180,16 @@
    "ouder": null,
    "threads": 32,
    "paginas": 2,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 90,
    "naam": "Challenger Pro League",
    "pad": "/board/90/challenger-pro-league",
    "ouder": 89,
-   "threads": 114,
+   "threads": 115,
    "paginas": 4,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-23"
   },
   {
    "id": 91,
@@ -205,9 +205,9 @@
    "naam": "Aankondigingen",
    "pad": "/board/95/aankondigingen",
    "ouder": null,
-   "threads": 26,
+   "threads": 27,
    "paginas": 1,
-   "laatst": null
+   "laatst": "2026-11-23"
   }
  ],
  "pages": [
