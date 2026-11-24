@@ -1,15 +1,15 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-23",
+ "laatsteWijziging": "2026-11-24",
  "boards": [
   {
    "id": 4,
    "naam": "Jupiler Pro League",
    "pad": "/board/4/jupiler-pro-league",
    "ouder": 89,
-   "threads": 1478,
+   "threads": 1481,
    "paginas": 50,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 9,
@@ -25,45 +25,45 @@
    "naam": "Ligue 1",
    "pad": "/board/10/ligue-1",
    "ouder": 9,
-   "threads": 245,
+   "threads": 247,
    "paginas": 9,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-24"
   },
   {
    "id": 11,
    "naam": "Bundesliga",
    "pad": "/board/11/bundesliga",
    "ouder": 9,
-   "threads": 251,
+   "threads": 253,
    "paginas": 9,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 12,
    "naam": "Premier League",
    "pad": "/board/12/premier-league",
    "ouder": 9,
-   "threads": 443,
+   "threads": 446,
    "paginas": 15,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 13,
    "naam": "La Liga",
    "pad": "/board/13/la-liga",
    "ouder": 9,
-   "threads": 339,
+   "threads": 341,
    "paginas": 12,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 14,
    "naam": "Eredivisie",
    "pad": "/board/14/eredivisie",
    "ouder": 9,
-   "threads": 208,
+   "threads": 210,
    "paginas": 7,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 15,
@@ -79,9 +79,9 @@
    "naam": "Europees voetbal",
    "pad": "/board/16/europees-voetbal",
    "ouder": null,
-   "threads": 66,
+   "threads": 67,
    "paginas": 3,
-   "laatst": "2026-11-18"
+   "laatst": "2026-11-24"
   },
   {
    "id": 17,
@@ -90,16 +90,16 @@
    "ouder": null,
    "threads": 843,
    "paginas": 29,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 18,
    "naam": "De Zijlijn",
    "pad": "/board/18/de-zijlijn",
    "ouder": null,
-   "threads": 1124,
+   "threads": 1125,
    "paginas": 38,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 22,
@@ -117,7 +117,7 @@
    "ouder": 89,
    "threads": 306,
    "paginas": 11,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 60,
@@ -144,7 +144,7 @@
    "ouder": 16,
    "threads": 448,
    "paginas": 15,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 72,
@@ -189,7 +189,7 @@
    "ouder": 89,
    "threads": 115,
    "paginas": 4,
-   "laatst": "2026-11-23"
+   "laatst": "2026-11-24"
   },
   {
    "id": 91,
@@ -198,7 +198,7 @@
    "ouder": 89,
    "threads": 93,
    "paginas": 4,
-   "laatst": "2026-11-22"
+   "laatst": "2026-11-24"
   },
   {
    "id": 95,
