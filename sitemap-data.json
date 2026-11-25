@@ -1,15 +1,15 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-24",
+ "laatsteWijziging": "2026-11-25",
  "boards": [
   {
    "id": 4,
    "naam": "Jupiler Pro League",
    "pad": "/board/4/jupiler-pro-league",
    "ouder": 89,
-   "threads": 1481,
+   "threads": 1482,
    "paginas": 50,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 9,
@@ -27,7 +27,7 @@
    "ouder": 9,
    "threads": 247,
    "paginas": 9,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 11,
@@ -43,9 +43,9 @@
    "naam": "Premier League",
    "pad": "/board/12/premier-league",
    "ouder": 9,
-   "threads": 446,
+   "threads": 447,
    "paginas": 15,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 13,
@@ -54,7 +54,7 @@
    "ouder": 9,
    "threads": 341,
    "paginas": 12,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 14,
@@ -81,16 +81,16 @@
    "ouder": null,
    "threads": 67,
    "paginas": 3,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 17,
    "naam": "Internationaal voetbal",
    "pad": "/board/17/internationaal-voetbal",
    "ouder": null,
-   "threads": 843,
+   "threads": 844,
    "paginas": 29,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 18,
@@ -99,7 +99,7 @@
    "ouder": null,
    "threads": 1125,
    "paginas": 38,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 22,
@@ -144,7 +144,7 @@
    "ouder": 16,
    "threads": 448,
    "paginas": 15,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 72,
@@ -189,7 +189,7 @@
    "ouder": 89,
    "threads": 115,
    "paginas": 4,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-25"
   },
   {
    "id": 91,
