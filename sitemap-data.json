@@ -1,6 +1,6 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-25",
+ "laatsteWijziging": "2026-11-26",
  "boards": [
   {
    "id": 4,
@@ -9,7 +9,7 @@
    "ouder": 89,
    "threads": 1482,
    "paginas": 50,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 9,
@@ -27,7 +27,7 @@
    "ouder": 9,
    "threads": 247,
    "paginas": 9,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 11,
@@ -45,7 +45,7 @@
    "ouder": 9,
    "threads": 447,
    "paginas": 15,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 13,
@@ -90,16 +90,16 @@
    "ouder": null,
    "threads": 844,
    "paginas": 29,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 18,
    "naam": "De Zijlijn",
    "pad": "/board/18/de-zijlijn",
    "ouder": null,
-   "threads": 1125,
+   "threads": 1126,
    "paginas": 38,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 22,
@@ -135,7 +135,7 @@
    "ouder": 16,
    "threads": 280,
    "paginas": 10,
-   "laatst": null
+   "laatst": "2026-11-26"
   },
   {
    "id": 62,
@@ -144,7 +144,7 @@
    "ouder": 16,
    "threads": 448,
    "paginas": 15,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 72,
@@ -171,25 +171,25 @@
    "ouder": 9,
    "threads": 84,
    "paginas": 3,
-   "laatst": null
+   "laatst": "2026-11-26"
   },
   {
    "id": 89,
    "naam": "Belgisch voetbal",
    "pad": "/board/89/belgisch-voetbal",
    "ouder": null,
-   "threads": 32,
+   "threads": 31,
    "paginas": 2,
-   "laatst": "2026-11-23"
+   "laatst": null
   },
   {
    "id": 90,
    "naam": "Challenger Pro League",
    "pad": "/board/90/challenger-pro-league",
    "ouder": 89,
-   "threads": 115,
+   "threads": 116,
    "paginas": 4,
-   "laatst": "2026-11-25"
+   "laatst": "2026-11-26"
   },
   {
    "id": 91,
