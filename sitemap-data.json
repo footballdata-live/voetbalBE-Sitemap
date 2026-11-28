@@ -1,15 +1,15 @@
 {
  "versie": 1,
- "laatsteWijziging": "2026-11-27",
+ "laatsteWijziging": "2026-11-28",
  "boards": [
   {
    "id": 4,
    "naam": "Jupiler Pro League",
    "pad": "/board/4/jupiler-pro-league",
    "ouder": 89,
-   "threads": 1483,
+   "threads": 1484,
    "paginas": 50,
-   "laatst": "2026-11-27"
+   "laatst": "2026-11-28"
   },
   {
    "id": 9,
@@ -27,7 +27,7 @@
    "ouder": 9,
    "threads": 247,
    "paginas": 9,
-   "laatst": "2026-11-26"
+   "laatst": "2026-11-28"
   },
   {
    "id": 11,
@@ -79,27 +79,27 @@
    "naam": "Europees voetbal",
    "pad": "/board/16/europees-voetbal",
    "ouder": null,
-   "threads": 68,
+   "threads": 69,
    "paginas": 3,
-   "laatst": "2026-11-27"
+   "laatst": "2026-11-28"
   },
   {
    "id": 17,
    "naam": "Internationaal voetbal",
    "pad": "/board/17/internationaal-voetbal",
    "ouder": null,
-   "threads": 844,
+   "threads": 845,
    "paginas": 29,
-   "laatst": "2026-11-27"
+   "laatst": "2026-11-28"
   },
   {
    "id": 18,
    "naam": "De Zijlijn",
    "pad": "/board/18/de-zijlijn",
    "ouder": null,
-   "threads": 1126,
+   "threads": 1127,
    "paginas": 38,
-   "laatst": "2026-11-27"
+   "laatst": "2026-11-28"
   },
   {
    "id": 22,
@@ -117,34 +117,34 @@
    "ouder": 89,
    "threads": 306,
    "paginas": 11,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-28"
   },
   {
    "id": 60,
    "naam": "Europa Conference League",
    "pad": "/board/60/europa-conference-league",
    "ouder": 16,
-   "threads": 299,
-   "paginas": 10,
-   "laatst": "2026-11-27"
+   "threads": 302,
+   "paginas": 11,
+   "laatst": "2026-11-28"
   },
   {
    "id": 61,
    "naam": "Europa League",
    "pad": "/board/61/europa-league",
    "ouder": 16,
-   "threads": 280,
+   "threads": 284,
    "paginas": 10,
-   "laatst": "2026-11-27"
+   "laatst": "2026-11-28"
   },
   {
    "id": 62,
    "naam": "Champions League",
    "pad": "/board/62/champions-league",
    "ouder": 16,
-   "threads": 448,
-   "paginas": 15,
-   "laatst": "2026-11-27"
+   "threads": 452,
+   "paginas": 16,
+   "laatst": "2026-11-28"
   },
   {
    "id": 72,
@@ -198,7 +198,7 @@
    "ouder": 89,
    "threads": 93,
    "paginas": 4,
-   "laatst": "2026-11-24"
+   "laatst": "2026-11-28"
   },
   {
    "id": 95,
